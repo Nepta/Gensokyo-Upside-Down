@@ -26,7 +26,7 @@ ifeq ($(config),debug)
   DEFINES   += 
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
-  CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -g -std=c++11
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -g -std=c++11 -Wextra
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += 
   LIBS      += -lsfml-graphics -lsfml-window -lsfml-system

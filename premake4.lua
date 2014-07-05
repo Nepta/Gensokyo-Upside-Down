@@ -14,7 +14,11 @@ solution "Template"
 		links {"sfml-graphics", "sfml-window", "sfml-system"}
 
 --		linkoptions{"libjsmn.a"} --small linking hack
-		configuration "debug"
-			flags {"ExtraWarnings", "Symbols"}
+
 		configuration "release"
 			flags {"OptimizeSpeed"}
+--			buildoptions{"-O2"}
+
+		configuration "debug"
+			flags {"ExtraWarnings", "Symbols"}
+			buildoptions{"-Wextra"}

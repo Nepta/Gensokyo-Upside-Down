@@ -11,8 +11,11 @@ int main()
     background.setOrigin(0.f,0.f);
     
     sf::Texture cirnoSheet;
-    cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png");
+    cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
     sf::Sprite cirno(cirnoSheet);
+    cirno.setTextureRect({0,0,32,32});
+    cirno.setOrigin(16,16);
+    cirno.setPosition(350,540);
 
     while(window.isOpen()){
         sf::Event event;

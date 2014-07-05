@@ -6,7 +6,7 @@ int main()
     sf::Texture backgroundTexture;
     sf::Sprite background;
 
-    backgroundTexture.loadFromFile("../resource/map/littleForest.png");
+    backgroundTexture.loadFromFile("resource/map/littleForest.png");
     background.setTexture(backgroundTexture);
     background.setOrigin(0.f,0.f);
 

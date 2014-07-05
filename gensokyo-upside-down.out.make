@@ -64,6 +64,7 @@ ifeq ($(config),release)
 endif
 
 OBJECTS := \
+	$(OBJDIR)/AnimatedSprite.o \
 	$(OBJDIR)/Main.o \
 
 RESOURCES := \
@@ -125,6 +126,9 @@ $(GCH): $(PCH)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 endif
 
+$(OBJDIR)/AnimatedSprite.o: src/AnimatedSprite.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Main.o: src/Main.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"

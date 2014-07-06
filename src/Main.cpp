@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "AnimatedSprite.h"
 
 int main()
 {
@@ -12,8 +13,10 @@ int main()
     
     sf::Texture cirnoSheet;
     cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
-    sf::Sprite cirno(cirnoSheet);
-    cirno.setTextureRect({0,0,32,32});
+    AnimatedSprite cirno(cirnoSheet);
+    cirno.addAnimation({0,0,32,32});
+    cirno.addAnimation({32,0,32,32});
+    cirno.addAnimation({64,0,32,32});
     cirno.setOrigin(16,16);
     cirno.setPosition(350,540);
 
@@ -24,7 +27,7 @@ int main()
                 window.close();
             }
         }
-        
+        cirno.nextAnimation();
         window.clear();
         window.draw(background);
         window.draw(cirno);

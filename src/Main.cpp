@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "AnimatedSprite.h"
+#include "EventManager.h"
 
 int main()
 {
@@ -21,15 +22,20 @@ int main()
     cirno.setPosition(350,540);
     
     
-    int i = 0;
+    int i = 350;
     while(window.isOpen()){
         sf::Event event;
+        EventManager eventManager;
         while (window.pollEvent(event)){
             if(event.type == sf::Event::Closed){
                 window.close();
+            }else{
+            	eventManager.addEvent(event);
             }
         }
-        cirno.setPosition(i++,540);
+        if(eventManager.have(std::string("right"))){
+        	cirno.setPosition(i++,540);
+        }
         cirno.nextAnimation();
         window.clear();
         window.draw(background);

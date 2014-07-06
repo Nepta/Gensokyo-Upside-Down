@@ -66,6 +66,7 @@ endif
 OBJECTS := \
 	$(OBJDIR)/AnimatedSprite.o \
 	$(OBJDIR)/Main.o \
+	$(OBJDIR)/EventManager.o \
 
 RESOURCES := \
 
@@ -130,6 +131,9 @@ $(OBJDIR)/AnimatedSprite.o: src/AnimatedSprite.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Main.o: src/Main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/EventManager.o: src/EventManager.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 

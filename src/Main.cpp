@@ -19,7 +19,9 @@ int main()
     cirno.addAnimation({64,0,32,32});
     cirno.setOrigin(16,16);
     cirno.setPosition(350,540);
-
+    
+    
+    int i = 0;
     while(window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event)){
@@ -27,6 +29,7 @@ int main()
                 window.close();
             }
         }
+        cirno.setPosition(i++,540);
         cirno.nextAnimation();
         window.clear();
         window.draw(background);

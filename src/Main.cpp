@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "AnimatedSprite.h"
 #include "EventManager.h"
+#include "Action/MoveAction.h"
 
 int main()
 {
@@ -34,7 +35,9 @@ int main()
             }
         }
         if(eventManager.have(std::string("right"))){
-        	cirno.setPosition(i++,540);
+        	SpriteAction *moveCirno = (new MoveAction(cirno))->setDirection(MoveAction::RIGHT);
+        	moveCirno->execute();
+//        	cirno.setPosition(i++,540);
         }
         cirno.nextAnimation();
         window.clear();
@@ -45,3 +48,4 @@ int main()
 
     return 0;
 }
+

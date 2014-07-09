@@ -12,7 +12,22 @@ int main()
     backgroundTexture.loadFromFile("resource/map/littleForest.png");
     background.setTexture(backgroundTexture);
     background.setOrigin(0.f,0.f);
-    
+
+    sf::Texture texBgUp;
+    texBgUp.loadFromFile("resource/map/bg_up.png");
+    sf::Sprite bgUp(texBgUp);
+
+    sf::Texture texBgDown;
+    texBgDown.loadFromFile("resource/map/bg_down.png");
+    sf::Sprite bgDown(texBgDown);
+
+    sf::View gui = window.getView();
+
+    sf::View up(sf::FloatRect(0.f, 0.f, static_cast<float>(window.getSize().y/2), static_cast<float>(window.getSize().x)));
+    up.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 0.998f));
+    sf::View down(sf::FloatRect(0.f, 0.f, static_cast<float>(window.getSize().y/2), static_cast<float>(window.getSize().x)));
+    down.setViewport(sf::FloatRect(0.f, 0.502f, 1.f, 1.f));
+
     sf::Texture cirnoSheet;
     cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
     AnimatedSprite cirno(cirnoSheet);
@@ -41,7 +56,13 @@ int main()
         }
         cirno.nextAnimation();
         window.clear();
-        window.draw(background);
+
+        window.setView(up);
+        window.draw(bgUp);
+        window.setView(down);
+        window.draw(bgDown);
+
+        window.setView(gui);
         window.draw(cirno);
         window.display();
     }

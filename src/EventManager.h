@@ -7,7 +7,7 @@
 
 class EventManager{
 public:
-	std::unordered_map<std::string, sf::Event> eventList_;
+	std::unordered_map<std::string, bool> eventList_;
 
 	void addEvent(sf::Event event);
 	bool have(std::string);

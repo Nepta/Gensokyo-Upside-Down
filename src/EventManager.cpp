@@ -3,19 +3,20 @@
 using namespace sf;
 
 void EventManager::addEvent(Event event){
-	if(event.type == Event::KeyPressed){
+	if(event.type == Event::KeyPressed || event.type == Event::KeyReleased){
+		bool keyPressed = event.type == Event::KeyPressed;
 		switch(event.key.code){
 			case Keyboard::Key::Z:
-				eventList_["up"] = std::move(event);
+				eventList_["up"] = keyPressed;
 				break;
 			case Keyboard::Key::Q:
-				eventList_["left"] = std::move(event);
+				eventList_["left"] = keyPressed;
 				break;
 			case Keyboard::Key::S:
-				eventList_["down"] = std::move(event);
+				eventList_["down"] = keyPressed;
 				break;
 			case Keyboard::Key::D:
-				eventList_["right"] = std::move(event);
+				eventList_["right"] = keyPressed;
 				break;
 			default:break;
 		}
@@ -23,7 +24,7 @@ void EventManager::addEvent(Event event){
 }
 
 bool EventManager::have(std::string event){
-	return eventList_.count(event) > 0;
+	return eventList_[event];
 }
 
 void EventManager::flushEvent(){

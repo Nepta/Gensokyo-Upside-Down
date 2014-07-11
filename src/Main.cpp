@@ -22,10 +22,25 @@ int main(){
 
 	sf::View gui = window.getView();
 
-	sf::View up(sf::FloatRect(0.f, 0.f, static_cast<float>(window.getSize().y/2), static_cast<float>(window.getSize().x)));
-	up.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 0.998f));
-	sf::View down(sf::FloatRect(0.f, 0.f, static_cast<float>(window.getSize().y/2), static_cast<float>(window.getSize().x)));
-	down.setViewport(sf::FloatRect(0.f, 0.502f, 1.f, 1.f));
+	sf::View up(
+        sf::FloatRect(
+            0.f, 
+            0.f, 
+            static_cast<float>(window.getSize().x),
+            static_cast<float>(window.getSize().y/2) 
+        )
+    );
+	up.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 0.5f));
+
+	sf::View down(
+        sf::FloatRect(
+            0.f, 
+            0.f, 
+            static_cast<float>(window.getSize().x),
+            static_cast<float>(window.getSize().y/2)
+        )
+    );
+	down.setViewport(sf::FloatRect(0.f, 0.5f, 1.f, 0.5f));
 
 	sf::Texture cirnoSheet;
 	cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
@@ -72,7 +87,7 @@ int main(){
 		window.setView(down);
 		window.draw(bgDown);
 
-		window.setView(gui);
+        window.setView(gui);
 		window.draw(cirno);
 		window.display();
 	}

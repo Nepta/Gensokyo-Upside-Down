@@ -21,4 +21,4 @@ solution "Template"
 
 		configuration "debug"
 			flags {"ExtraWarnings", "Symbols"}
-			buildoptions{"-Wextra"}
+			buildoptions{"-Wextra", "-O0"}

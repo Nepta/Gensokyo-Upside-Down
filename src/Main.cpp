@@ -3,6 +3,36 @@
 #include "EventManager.h"
 #include "Action/MoveAction.h"
 
+void initCirno(AnimatedSprite& cirno){
+	Animation cirnoDown;
+	cirnoDown.addAnimation({0,0,32,32});
+	cirnoDown.addAnimation({32,0,32,32});
+	cirnoDown.addAnimation({64,0,32,32});
+	
+	Animation cirnoLeft;
+	cirnoLeft.addAnimation({0,32,32,32});
+	cirnoLeft.addAnimation({32,32,32,32});
+	cirnoLeft.addAnimation({64,32,32,32});
+	
+	Animation cirnoRight;
+	cirnoRight.addAnimation({0,64,32,32});
+	cirnoRight.addAnimation({32,64,32,32});
+	cirnoRight.addAnimation({64,64,32,32});
+	
+	Animation cirnoUp;
+	cirnoUp.addAnimation({0,96,32,32});
+	cirnoUp.addAnimation({32,96,32,32});
+	cirnoUp.addAnimation({64,96,32,32});
+	
+	cirno.addAnimation("down",cirnoDown);
+	cirno.addAnimation("left",cirnoLeft);
+	cirno.addAnimation("right",cirnoRight);
+	cirno.addAnimation("up",cirnoUp);
+	
+	cirno.setOrigin(16,16);
+	cirno.setPosition(350,540);
+}
+
 int main(){
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Frame's Title");
 	sf::Texture backgroundTexture;
@@ -30,15 +60,8 @@ int main(){
 	sf::Texture cirnoSheet;
 	cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
 	AnimatedSprite cirno(cirnoSheet);
-	Animation cirnoDown;
-	cirnoDown.addAnimation({0,0,32,32});
-	cirnoDown.addAnimation({32,0,32,32});
-	cirnoDown.addAnimation({64,0,32,32});
-	cirno.addAnimation("down",cirnoDown);
-	cirno.setOrigin(16,16);
-	cirno.setPosition(350,540);
-
-
+	initCirno(cirno);
+	
 	EventManager eventManager;
 	while(window.isOpen()){
 		sf::Event event;

@@ -1,7 +1,7 @@
 #include "MoveAction.h"
 #include <SFML/Graphics.hpp>
 
-MoveAction::MoveAction(sf::Sprite& sprite) : SpriteAction(sprite){}
+MoveAction::MoveAction(AnimatedSprite& sprite) : AnimatedSpriteAction(sprite){}
 
 MoveAction* MoveAction::setDirection(MoveAction::Direction direction){
 	direction_ = direction;
@@ -13,15 +13,19 @@ void MoveAction::execute(){
 	switch(direction_){
 		case MoveAction::UP:
 			position.y--;
+			sprite().setAnimation("up");
 			break;
 		case MoveAction::RIGHT:
 			position.x++;
+			sprite().setAnimation("right");
 			break;
 		case MoveAction::DOWN:
 			position.y++;
+			sprite().setAnimation("down");
 			break;
 		case MoveAction::LEFT:
 			position.x--;
+			sprite().setAnimation("left");
 			break;
 		case MoveAction::UNKNOWN:
 		default: break;

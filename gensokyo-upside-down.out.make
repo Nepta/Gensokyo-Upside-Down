@@ -69,6 +69,7 @@ OBJECTS := \
 	$(OBJDIR)/Animation.o \
 	$(OBJDIR)/Main.o \
 	$(OBJDIR)/SpriteAction.o \
+	$(OBJDIR)/AnimatedSpriteAction.o \
 	$(OBJDIR)/MoveAction.o \
 
 RESOURCES := \
@@ -143,6 +144,9 @@ $(OBJDIR)/Main.o: src/Main.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/SpriteAction.o: src/Action/SpriteAction.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/AnimatedSpriteAction.o: src/Action/AnimatedSpriteAction.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/MoveAction.o: src/Action/MoveAction.cpp

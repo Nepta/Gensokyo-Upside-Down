@@ -8,7 +8,7 @@ class SpriteAction{
 	
 public:
 	SpriteAction(sf::Sprite& sprite);
-	sf::Sprite& sprite();
+	virtual sf::Sprite& sprite();
 	virtual void execute() = 0;
 };
 

@@ -1,9 +1,9 @@
 #ifndef __MoveAction_H__
 #define __MoveAction_H__
 
-#include "SpriteAction.h" 
+#include "AnimatedSpriteAction.h" 
 
-class MoveAction : public SpriteAction{
+class MoveAction : public AnimatedSpriteAction{
 public:
 	enum Direction{
 		UP,
@@ -16,7 +16,7 @@ public:
 private:
 	Direction direction_ = UNKNOWN;
 public:
-	MoveAction(sf::Sprite& sprite);
+	MoveAction(AnimatedSprite& sprite);
 	MoveAction* setDirection(Direction direction);
 	void execute();
 };

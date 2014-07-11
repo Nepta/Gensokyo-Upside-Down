@@ -30,9 +30,11 @@ int main(){
 	sf::Texture cirnoSheet;
 	cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
 	AnimatedSprite cirno(cirnoSheet);
-	cirno.addAnimation({0,0,32,32});
-	cirno.addAnimation({32,0,32,32});
-	cirno.addAnimation({64,0,32,32});
+	Animation cirnoDown;
+	cirnoDown.addAnimation({0,0,32,32});
+	cirnoDown.addAnimation({32,0,32,32});
+	cirnoDown.addAnimation({64,0,32,32});
+	cirno.addAnimation("down",cirnoDown);
 	cirno.setOrigin(16,16);
 	cirno.setPosition(350,540);
 

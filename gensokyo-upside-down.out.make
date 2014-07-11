@@ -26,7 +26,7 @@ ifeq ($(config),debug)
   DEFINES   += 
   INCLUDES  += 
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
-  CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -g -std=c++11 -Wextra
+  CFLAGS    += $(CPPFLAGS) $(ARCH) -Wall -g -std=c++11 -Wextra -O0
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += 
   LIBS      += -lsfml-graphics -lsfml-window -lsfml-system
@@ -64,11 +64,12 @@ ifeq ($(config),release)
 endif
 
 OBJECTS := \
-	$(OBJDIR)/AnimatedSprite.o \
-	$(OBJDIR)/Main.o \
 	$(OBJDIR)/EventManager.o \
-	$(OBJDIR)/MoveAction.o \
+	$(OBJDIR)/AnimatedSprite.o \
+	$(OBJDIR)/Animation.o \
+	$(OBJDIR)/Main.o \
 	$(OBJDIR)/SpriteAction.o \
+	$(OBJDIR)/MoveAction.o \
 
 RESOURCES := \
 
@@ -129,19 +130,22 @@ $(GCH): $(PCH)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 endif
 
+$(OBJDIR)/EventManager.o: src/EventManager.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/AnimatedSprite.o: src/AnimatedSprite.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/Animation.o: src/Animation.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Main.o: src/Main.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/EventManager.o: src/EventManager.cpp
+$(OBJDIR)/SpriteAction.o: src/Action/SpriteAction.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/MoveAction.o: src/Action/MoveAction.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/SpriteAction.o: src/Action/SpriteAction.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 

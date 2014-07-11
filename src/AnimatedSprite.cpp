@@ -4,12 +4,21 @@ using namespace sf;
 
 AnimatedSprite::AnimatedSprite(Texture &texture) : Sprite(texture){}
 
-void AnimatedSprite::addAnimation(IntRect animation){
-	animationList_.push_back(animation);
-	this->setTextureRect(animation);
+void AnimatedSprite::addAnimation(std::string animationName, Animation& animation){
+	animationList_[animationName] = animation;
+	setAnimation(animationName);
 }
 
 void AnimatedSprite::nextAnimation(){
-	currentAnimation_ = currentAnimation_+1 < animationList_.size() ? currentAnimation_+1 : 0;
-	this->setTextureRect(animationList_[currentAnimation_]);
+	IntRect& nextAnimation = animationList_[currentAnimation_].next();
+	this->setTextureRect(nextAnimation);
+}
+
+void AnimatedSprite::setAnimation(std::string animation){
+	this->currentAnimation_ = animation;
+	this->setTextureRect(currentAnimation());
+}
+
+IntRect& AnimatedSprite::currentAnimation(){
+	return animationList_[currentAnimation_].currentAnimation();
 }

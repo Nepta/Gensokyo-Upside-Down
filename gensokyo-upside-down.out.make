@@ -67,6 +67,7 @@ OBJECTS := \
 	$(OBJDIR)/EventManager.o \
 	$(OBJDIR)/AnimatedSprite.o \
 	$(OBJDIR)/Animation.o \
+	$(OBJDIR)/SpriteFactory.o \
 	$(OBJDIR)/Main.o \
 	$(OBJDIR)/SpriteAction.o \
 	$(OBJDIR)/AnimatedSpriteAction.o \
@@ -138,6 +139,9 @@ $(OBJDIR)/AnimatedSprite.o: src/AnimatedSprite.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Animation.o: src/Animation.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/SpriteFactory.o: src/SpriteFactory.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Main.o: src/Main.cpp

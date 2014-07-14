@@ -8,3 +8,7 @@ AnimatedSprite SpriteFactory::create(std::string spriteSheetName){
 //	initCirno(cirno);
 }
 
+void SpriteFactory::addAnimation(std::string animationName, Animation& animation){
+	animationList_[animationName] = animation;
+}
+

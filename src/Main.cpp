@@ -3,6 +3,8 @@
 #include "EventManager.h"
 #include "Action/MoveAction.h"
 
+#define MS_SPRITE_FPS 64
+
 int main(){
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Frame's Title");
 	sf::Texture backgroundTexture;
@@ -20,7 +22,7 @@ int main(){
 	texBgDown.loadFromFile("resource/map/bg_down.png");
 	sf::Sprite bgDown(texBgDown);
 
-	sf::View gui = window.getView();
+	// sf::View gui = window.getView();
 
 	sf::View up(
         sf::FloatRect(
@@ -49,10 +51,14 @@ int main(){
 	cirno.addAnimation({32,0,32,32});
 	cirno.addAnimation({64,0,32,32});
 	cirno.setOrigin(16,16);
-	cirno.setPosition(350,540);
-
+	cirno.setPosition(50,50);
 
 	EventManager eventManager;
+
+	sf::Clock clock;
+	sf::Time previous = clock.getElapsedTime();
+	sf::Time lag = sf::Time::Zero;
+
 	while(window.isOpen()){
 		sf::Event event;
 		while(window.pollEvent(event)){
@@ -79,7 +85,17 @@ int main(){
 			moveCirno.setDirection(MoveAction::DOWN);
 			moveCirno.execute();
 		}
-		cirno.nextAnimation();
+
+		sf::Time current = clock.getElapsedTime();
+		sf::Time elapsed = current - previous;
+		previous = current;
+		lag += elapsed;
+
+		if(lag.asMilliseconds() >= MS_SPRITE_FPS){
+			cirno.nextAnimation();
+			lag -= sf::milliseconds(MS_SPRITE_FPS);
+		}
+
 		window.clear();
 
 		window.setView(up);
@@ -87,7 +103,7 @@ int main(){
 		window.setView(down);
 		window.draw(bgDown);
 
-        window.setView(gui);
+        // window.setView(gui);
 		window.draw(cirno);
 		window.display();
 	}

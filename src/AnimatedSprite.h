@@ -7,6 +7,7 @@
 #include "Animation.h"
 
 class AnimatedSprite : public sf::Sprite{
+public:
 	std::string currentAnimation_;
 	std::unordered_map<std::string, Animation> animationList_;
 

@@ -2,10 +2,13 @@
 #include "AnimatedSprite.h"
 #include "EventManager.h"
 #include "Action/MoveAction.h"
+#include "SpriteFactory.h"
 
 #define MS_SPRITE_FPS 64
 
-void initCirno(AnimatedSprite& cirno){
+AnimatedSprite getCirno(){
+	SpriteFactory cirnoFactory("resource/spriteSheet");
+	
 	Animation cirnoDown;
 	cirnoDown.addFrame({0,0,32,32});
 	cirnoDown.addFrame({32,0,32,32});
@@ -26,13 +29,17 @@ void initCirno(AnimatedSprite& cirno){
 	cirnoUp.addFrame({32,96,32,32});
 	cirnoUp.addFrame({64,96,32,32});
 	
-	cirno.addAnimation("down",cirnoDown);
-	cirno.addAnimation("left",cirnoLeft);
-	cirno.addAnimation("right",cirnoRight);
-	cirno.addAnimation("up",cirnoUp);
 	
+	
+	cirnoFactory.addAnimation("down",cirnoDown);
+	cirnoFactory.addAnimation("left",cirnoLeft);
+	cirnoFactory.addAnimation("right",cirnoRight);
+	cirnoFactory.addAnimation("up",cirnoUp);
+	
+	AnimatedSprite cirno = cirnoFactory.create("cirno.png");
 	cirno.setOrigin(16,16);
 	cirno.setPosition(50,50);
+	return cirno;
 }
 
 int main(){
@@ -72,10 +79,7 @@ int main(){
     );
 	down.setViewport(sf::FloatRect(0.f, 0.5f, 1.f, 0.5f));
 
-	sf::Texture cirnoSheet;
-	cirnoSheet.loadFromFile("resource/spriteSheet/WZcSP.png", {96,0,96,128});
-	AnimatedSprite cirno(cirnoSheet);
-	initCirno(cirno);
+	AnimatedSprite cirno = getCirno();
 	
 	EventManager eventManager;
 

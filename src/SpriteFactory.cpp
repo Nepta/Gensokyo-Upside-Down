@@ -10,7 +10,7 @@ AnimatedSprite SpriteFactory::create(std::string spriteSheetName){
 	for(std::pair<std::string, Animation> animation : animationList_){
 		sprite.addAnimation(animation.first, animation.second);
 	}
-	return AnimatedSprite(spriteSheet);
+	return sprite;
 }
 
 void SpriteFactory::addAnimation(std::string animationName, Animation& animation){

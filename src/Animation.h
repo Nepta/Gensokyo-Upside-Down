@@ -5,10 +5,10 @@
 
 class Animation{
 	unsigned int currentAnimation_ = 0;
-	std::vector<sf::IntRect> animationList_;
+	std::vector<sf::IntRect> frameList_;
 
 public:
-	void addAnimation(sf::IntRect animation);
+	void addFrame(sf::IntRect frame);
 	sf::IntRect& next();
 	sf::IntRect& currentAnimation();
 };

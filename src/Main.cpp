@@ -7,24 +7,24 @@
 
 void initCirno(AnimatedSprite& cirno){
 	Animation cirnoDown;
-	cirnoDown.addAnimation({0,0,32,32});
-	cirnoDown.addAnimation({32,0,32,32});
-	cirnoDown.addAnimation({64,0,32,32});
+	cirnoDown.addFrame({0,0,32,32});
+	cirnoDown.addFrame({32,0,32,32});
+	cirnoDown.addFrame({64,0,32,32});
 	
 	Animation cirnoLeft;
-	cirnoLeft.addAnimation({0,32,32,32});
-	cirnoLeft.addAnimation({32,32,32,32});
-	cirnoLeft.addAnimation({64,32,32,32});
+	cirnoLeft.addFrame({0,32,32,32});
+	cirnoLeft.addFrame({32,32,32,32});
+	cirnoLeft.addFrame({64,32,32,32});
 	
 	Animation cirnoRight;
-	cirnoRight.addAnimation({0,64,32,32});
-	cirnoRight.addAnimation({32,64,32,32});
-	cirnoRight.addAnimation({64,64,32,32});
+	cirnoRight.addFrame({0,64,32,32});
+	cirnoRight.addFrame({32,64,32,32});
+	cirnoRight.addFrame({64,64,32,32});
 	
 	Animation cirnoUp;
-	cirnoUp.addAnimation({0,96,32,32});
-	cirnoUp.addAnimation({32,96,32,32});
-	cirnoUp.addAnimation({64,96,32,32});
+	cirnoUp.addFrame({0,96,32,32});
+	cirnoUp.addFrame({32,96,32,32});
+	cirnoUp.addFrame({64,96,32,32});
 	
 	cirno.addAnimation("down",cirnoDown);
 	cirno.addAnimation("left",cirnoLeft);

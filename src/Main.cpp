@@ -7,7 +7,8 @@
 #define MS_SPRITE_FPS 64
 
 AnimatedSprite getCirno(){
-	SpriteFactory cirnoFactory("resource/spriteSheet");
+	SpriteFactory& cirnoFactory = *(new SpriteFactory("resource/spriteSheet"));
+	cirnoFactory.addSpriteSheet("cirno.png");
 	
 	Animation cirnoDown;
 	cirnoDown.addFrame({0,0,32,32});

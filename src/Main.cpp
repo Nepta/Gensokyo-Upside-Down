@@ -20,10 +20,10 @@ AnimatedSprite getCirno(){
 	cirnoLeft.addFrame({32,32,32,32});
 	cirnoLeft.addFrame({64,32,32,32});
 	
-	Animation cirnoRight;
-	cirnoRight.addFrame({0,64,32,32});
-	cirnoRight.addFrame({32,64,32,32});
-	cirnoRight.addFrame({64,64,32,32});
+	Animation cirnoRight{{0,64,32,32},{32,64,32,32},{32,64,32,32},{64,64,32,32}};
+//	cirnoRight.addFrame({0,64,32,32});
+//	cirnoRight.addFrame({32,64,32,32});
+//	cirnoRight.addFrame({64,64,32,32});
 	
 	Animation cirnoUp;
 	cirnoUp.addFrame({0,96,32,32});

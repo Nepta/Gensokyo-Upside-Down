@@ -2,6 +2,8 @@
 
 using namespace sf;
 
+Animation::Animation(std::initializer_list<sf::IntRect> frames) : frameList_(frames){}
+
 void Animation::addFrame(IntRect frame){
 	frameList_.push_back(frame);
 }

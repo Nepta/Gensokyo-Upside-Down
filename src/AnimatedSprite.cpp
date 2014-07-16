@@ -6,7 +6,13 @@ using namespace std;
 AnimatedSprite::AnimatedSprite(Texture& texture) : Sprite(texture){}
 
 AnimatedSprite::AnimatedSprite(Texture& texture, AnimationHashMapInitializer animationList) :
-	Sprite(texture), animationList_(animationList){}
+Sprite(texture), animationList_(animationList){}
+	
+AnimatedSprite::AnimatedSprite(Texture& texture, Animation::HashMap animationList) :
+Sprite(texture), animationList_(animationList){
+	auto firstElement = animationList_.begin();
+	setAnimation(firstElement->first);
+}
 
 void AnimatedSprite::addAnimation(std::string animationName, Animation& animation){
 	animationList_[animationName] = animation;

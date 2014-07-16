@@ -16,6 +16,7 @@ private:
 public:
 	AnimatedSprite(sf::Texture& texture);
 	AnimatedSprite(sf::Texture& texture, AnimationHashMapInitializer);
+	AnimatedSprite(sf::Texture& texture, Animation::HashMap);
 	void addAnimation(std::string animationName, Animation& animation);
 	void nextAnimation();
 	void setAnimation(std::string);

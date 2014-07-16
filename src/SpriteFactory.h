@@ -6,7 +6,7 @@
 
 class SpriteFactory{
 	std::string path_;
-	std::unordered_map<std::string, Animation> animationList_;
+	Animation::HashMap animationList_;
 	std::unordered_map<std::string, sf::Texture> textureList_;
 	
 public:

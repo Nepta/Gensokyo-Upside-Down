@@ -23,6 +23,5 @@ void SpriteFactory::addConfig(std::string configName, std::string spriteSheetNam
 
 void SpriteFactory::addConfig(ConfigObject *object){
 	addConfig(object->configName(), object->spriteSheetName(), object->config());
-	delete object;
 }
 

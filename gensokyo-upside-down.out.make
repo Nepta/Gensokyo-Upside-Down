@@ -72,6 +72,7 @@ OBJECTS := \
 	$(OBJDIR)/SpriteAction.o \
 	$(OBJDIR)/AnimatedSpriteAction.o \
 	$(OBJDIR)/MoveAction.o \
+	$(OBJDIR)/CirnoConfig.o \
 
 RESOURCES := \
 
@@ -154,6 +155,9 @@ $(OBJDIR)/AnimatedSpriteAction.o: src/Action/AnimatedSpriteAction.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/MoveAction.o: src/Action/MoveAction.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+$(OBJDIR)/CirnoConfig.o: src/FactoryConfig/CirnoConfig.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 

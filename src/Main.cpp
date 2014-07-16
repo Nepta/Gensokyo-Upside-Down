@@ -32,7 +32,7 @@ void initCirno(AnimatedSprite& cirno){
 	cirno.addAnimation("up",cirnoUp);
 	
 	cirno.setOrigin(16,16);
-	cirno.setPosition(350,540);
+	cirno.setPosition(50,50);
 }
 
 int main(){

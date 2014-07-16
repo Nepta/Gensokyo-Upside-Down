@@ -32,3 +32,4 @@ void AnimatedSprite::setAnimation(std::string animation){
 IntRect& AnimatedSprite::currentAnimation(){
 	return animationList_[currentAnimation_].currentAnimation();
 }
+

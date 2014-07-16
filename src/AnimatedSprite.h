@@ -1,21 +1,21 @@
 #ifndef __Animated_H__
 #define __Animated_H__
 
-#include <unordered_map>
-#include <string>
-#include <SFML/Graphics.hpp>
 #include "Animation.h"
-
+#include <string>
+#include <unordered_map>
+#include <SFML/Graphics.hpp>
 class AnimatedSprite : public sf::Sprite{
-public:
+	typedef std::initializer_list<Animation::HashMap::value_type> AnimationHashMapInitializer;
 	std::string currentAnimation_;
-	std::unordered_map<std::string, Animation> animationList_;
+	Animation::HashMap animationList_;
 
 private:
 	sf::IntRect& currentAnimation();
 
 public:
-	AnimatedSprite(sf::Texture &texture);
+	AnimatedSprite(sf::Texture& texture);
+	AnimatedSprite(sf::Texture& texture, AnimationHashMapInitializer);
 	void addAnimation(std::string animationName, Animation& animation);
 	void nextAnimation();
 	void setAnimation(std::string);

@@ -1,8 +1,12 @@
 #include "AnimatedSprite.h"
 
 using namespace sf;
+using namespace std;
 
-AnimatedSprite::AnimatedSprite(Texture &texture) : Sprite(texture){}
+AnimatedSprite::AnimatedSprite(Texture& texture) : Sprite(texture){}
+
+AnimatedSprite::AnimatedSprite(Texture& texture, AnimationHashMapInitializer animationList) :
+	Sprite(texture), animationList_(animationList){}
 
 void AnimatedSprite::addAnimation(std::string animationName, Animation& animation){
 	animationList_[animationName] = animation;

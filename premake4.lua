@@ -9,7 +9,7 @@ solution "Template"
 		kind "ConsoleApp"
 		language "C++"
 
-		files {"src/**.cpp"}
+		files {"src/**.cpp", "src/FactoryConfig/*.h"}
 		excludes{"test*.c"}
 		links {"sfml-graphics", "sfml-window", "sfml-system"}
 

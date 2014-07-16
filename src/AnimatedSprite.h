@@ -5,6 +5,7 @@
 #include <string>
 #include <unordered_map>
 #include <SFML/Graphics.hpp>
+
 class AnimatedSprite : public sf::Sprite{
 	typedef std::initializer_list<Animation::HashMap::value_type> AnimationHashMapInitializer;
 	std::string currentAnimation_;

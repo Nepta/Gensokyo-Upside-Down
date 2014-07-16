@@ -3,6 +3,7 @@
 
 #include "AnimatedSprite.h"
 #include "Animation.h"
+#include "FactoryConfig/ConfigObject.h"
 
 class SpriteFactory{
 	std::string path_;
@@ -16,7 +17,8 @@ private:
 public:
 	SpriteFactory(std::string path = "");
 	AnimatedSprite create(std::string spriteName);
-	void addConfig(std::string animationName, std::string configName, std::initializer_list<Animation::HashMap::value_type>);
+	void addConfig(std::string animationName, std::string configName, Animation::HashMap);
+	void addConfig(ConfigObject *object);
 };
 
 #endif /* __SpriteFactory_H__ */

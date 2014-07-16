@@ -3,6 +3,7 @@
 #include "EventManager.h"
 #include "Action/MoveAction.h"
 #include "SpriteFactory.h"
+#include "FactoryConfig/CirnoConfig.h"
 
 #define MS_SPRITE_FPS 64
 
@@ -14,12 +15,15 @@ AnimatedSprite getCirno(){
 //	Animation cirnoRight{{0,64,32,32},{32,64,32,32},{64,64,32,32}};
 //	Animation cirnoUp{{0,96,32,32},{32,96,32,32},{64,96,32,32}};
 	
-	cirnoFactory.addConfig("cirno","cirno.png",{
-		{"up",{{0,96,32,32},{32,96,32,32},{64,96,32,32}}},
-		{"right",{{0,64,32,32},{32,64,32,32},{64,64,32,32}}},
-		{"left",{{0,32,32,32},{0,32,32,32},{64,32,32,32}}},
-		{"down",{{0,0,32,32},{32,0,32,32},{64,0,32,32}}}
-	});
+//	cirnoFactory.addConfig("cirno","cirno.png",{
+//		{"up",{{0,96,32,32},{32,96,32,32},{64,96,32,32}}},
+//		{"right",{{0,64,32,32},{32,64,32,32},{64,64,32,32}}},
+//		{"left",{{0,32,32,32},{0,32,32,32},{64,32,32,32}}},
+//		{"down",{{0,0,32,32},{32,0,32,32},{64,0,32,32}}}
+//	});
+
+	CirnoConfig cirnoConfig;
+	cirnoFactory.addConfig(new CirnoConfig());
 
 	AnimatedSprite cirno = cirnoFactory.create("cirno");
 	cirno.setOrigin(16,16);

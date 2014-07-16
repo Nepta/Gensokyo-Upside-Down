@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <initializer_list>
+#include <unordered_map>
 
 class Animation{
 	unsigned int currentAnimation_ = 0;
@@ -14,6 +15,8 @@ public:
 	void addFrame(sf::IntRect frame);
 	sf::IntRect& next();
 	sf::IntRect& currentAnimation();
+
+	typedef std::unordered_map<std::string, Animation> HashMap;
 };
 
 #endif /* __Animation_H__ */

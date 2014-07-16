@@ -9,19 +9,19 @@
 AnimatedSprite getCirno(){
 	SpriteFactory& cirnoFactory = *(new SpriteFactory("resource/spriteSheet"));
 	
-	Animation cirnoDown{{0,0,32,32},{32,0,32,32},{64,0,32,32}};
-	Animation cirnoLeft{{0,32,32,32},{0,32,32,32},{64,32,32,32}};
-	Animation cirnoRight{{0,64,32,32},{32,64,32,32},{64,64,32,32}};
-	Animation cirnoUp{{0,96,32,32},{32,96,32,32},{64,96,32,32}};
+//	Animation cirnoDown{{0,0,32,32},{32,0,32,32},{64,0,32,32}};
+//	Animation cirnoLeft{{0,32,32,32},{0,32,32,32},{64,32,32,32}};
+//	Animation cirnoRight{{0,64,32,32},{32,64,32,32},{64,64,32,32}};
+//	Animation cirnoUp{{0,96,32,32},{32,96,32,32},{64,96,32,32}};
 	
-	cirnoFactory.addConfig("cirno.png","cirno.png",{
-		{"up",cirnoUp},
-		{"right",cirnoRight},
-		{"left",cirnoLeft},
-		{"down",cirnoDown}
+	cirnoFactory.addConfig("cirno","cirno.png",{
+		{"up",{{0,96,32,32},{32,96,32,32},{64,96,32,32}}},
+		{"right",{{0,64,32,32},{32,64,32,32},{64,64,32,32}}},
+		{"left",{{0,32,32,32},{0,32,32,32},{64,32,32,32}}},
+		{"down",{{0,0,32,32},{32,0,32,32},{64,0,32,32}}}
 	});
 
-	AnimatedSprite cirno = cirnoFactory.create("cirno.png");
+	AnimatedSprite cirno = cirnoFactory.create("cirno");
 	cirno.setOrigin(16,16);
 	cirno.setPosition(50,50);
 	return cirno;

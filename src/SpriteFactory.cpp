@@ -10,18 +10,14 @@ AnimatedSprite SpriteFactory::create(std::string spriteName){
 	return sprite;
 }
 
-void SpriteFactory::addAnimation(std::string animationName, Animation& animation){
-	animationList_[animationName] = animation;
-}
-
 void SpriteFactory::addConfig(std::string configName, std::string spriteSheetName, std::initializer_list<Animation::HashMap::value_type> animationConf){
-	addSpriteSheet(spriteSheetName);
+	addSpriteSheet(configName,spriteSheetName);
 	configList_[configName] = animationConf;
 }
 
-void SpriteFactory::addSpriteSheet(std::string spriteSheetName){
+void SpriteFactory::addSpriteSheet(std::string configName, std::string spriteSheetName){
 	sf::Texture spriteSheet;
 	spriteSheet.loadFromFile(path_ + "/" + spriteSheetName);
-	textureList_[spriteSheetName] = spriteSheet;
+	textureList_[configName] = spriteSheet;
 }
 

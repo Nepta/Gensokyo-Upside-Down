@@ -92,6 +92,28 @@ int main(){
 			moveCirno.setDirection(MoveAction::DOWN);
 			moveCirno.execute();
 		}
+		
+		if(eventManager.have(std::string("primary"))){
+			MoveAction moveGrownCirno(grownCirno);
+			sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+			sf::Vector2i spritePosition(grownCirno.getPosition());
+			sf::Vector2i path = mousePosition-spritePosition;
+			if(path.x > 1){
+				moveGrownCirno.setDirection(MoveAction::RIGHT);
+				moveGrownCirno.execute();
+			}else{
+				moveGrownCirno.setDirection(MoveAction::LEFT);
+				moveGrownCirno.execute();
+			}
+			if(path.y > 1){
+				moveGrownCirno.setDirection(MoveAction::DOWN);
+				moveGrownCirno.execute();
+			}else{
+				moveGrownCirno.setDirection(MoveAction::UP);
+				moveGrownCirno.execute();
+			}
+
+		}
 
 		sf::Time current = clock.getElapsedTime();
 		sf::Time elapsed = current - previous;
@@ -108,10 +130,11 @@ int main(){
 		window.setView(up);
 		window.draw(bgUp);
 		window.draw(grownCirno);
+
 		window.setView(down);
 		window.draw(bgDown);
-
 		window.draw(cirno);
+
 		window.display();
 	}
 

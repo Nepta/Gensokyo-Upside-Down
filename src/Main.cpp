@@ -101,14 +101,14 @@ int main(){
 			if(path.x > 1){
 				moveGrownCirno.setDirection(MoveAction::RIGHT);
 				moveGrownCirno.execute();
-			}else{
+			}else if(path.x < 1){
 				moveGrownCirno.setDirection(MoveAction::LEFT);
 				moveGrownCirno.execute();
 			}
 			if(path.y > 1){
 				moveGrownCirno.setDirection(MoveAction::DOWN);
 				moveGrownCirno.execute();
-			}else{
+			}else if(path.y < -1){
 				moveGrownCirno.setDirection(MoveAction::UP);
 				moveGrownCirno.execute();
 			}

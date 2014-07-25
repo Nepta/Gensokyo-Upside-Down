@@ -20,6 +20,19 @@ void EventManager::addEvent(Event event){
 				break;
 			default:break;
 		}
+	}else if(event.type == Event::MouseButtonReleased || event.type == Event::MouseButtonPressed){
+		bool mousePressed = event.type == Event::MouseButtonPressed;
+		switch(event.mouseButton.button){
+			case Mouse::Left:
+				eventList_["primary"] = mousePressed;
+				err() << "left mouse pressed " << mousePressed << std::endl;
+				break;
+			case Mouse::Right:
+				eventList_["secondary"] = mousePressed;
+				err() << "right mouse pressed " << mousePressed << std::endl;
+				break;
+			default:break;
+		}
 	}
 }
 

@@ -18,7 +18,7 @@ public:
 	SpriteFactory(std::string path = "");
 	AnimatedSprite create(std::string spriteName);
 	void addConfig(std::string animationName, std::string configName, Animation::HashMap);
-	void addConfig(ConfigObject *object);
+	void addConfig(ConfigObject& object);
 };
 
 #endif /* __SpriteFactory_H__ */

@@ -21,7 +21,7 @@ void SpriteFactory::addConfig(std::string configName, std::string spriteSheetNam
 	configList_[configName] = animationConf;
 }
 
-void SpriteFactory::addConfig(ConfigObject *object){
-	addConfig(object->configName(), object->spriteSheetName(), object->config());
+void SpriteFactory::addConfig(ConfigObject& object){
+	addConfig(object.configName(), object.spriteSheetName(), object.config());
 }
 

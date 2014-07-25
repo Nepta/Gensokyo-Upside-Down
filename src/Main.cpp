@@ -48,7 +48,8 @@ int main(){
 
 	
 	SpriteFactory cirnoFactory(defaultResourcePath);
-	cirnoFactory.addConfig(new CirnoConfig());
+	CirnoConfig cirnoConfigTemplate;
+	cirnoFactory.addConfig(cirnoConfigTemplate);
 	AnimatedSprite cirno = cirnoFactory.create("cirno");
 	cirno.setOrigin(16,16);
 	cirno.setPosition(50,50);

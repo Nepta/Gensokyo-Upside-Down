@@ -122,6 +122,7 @@ int main(){
 
 		if(lag.asMilliseconds() >= MS_SPRITE_FPS){
 			cirno.nextAnimation();
+			grownCirno.nextAnimation();
 			lag -= sf::milliseconds(MS_SPRITE_FPS);
 		}
 

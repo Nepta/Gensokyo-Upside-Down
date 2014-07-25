@@ -54,6 +54,12 @@ int main(){
 	cirno.setOrigin(16,16);
 	cirno.setPosition(50,50);
 	
+	ConfigObject grownCirnoConfigTemplate("grownCirno","cirnoGrown.png");
+	cirnoFactory.addConfig(grownCirnoConfigTemplate);
+	AnimatedSprite grownCirno = cirnoFactory.create("grownCirno");
+	grownCirno.setOrigin(16,16);
+	grownCirno.setPosition(50,50);
+	
 	EventManager eventManager;
 
 	sf::Clock clock;
@@ -101,6 +107,7 @@ int main(){
 
 		window.setView(up);
 		window.draw(bgUp);
+		window.draw(grownCirno);
 		window.setView(down);
 		window.draw(bgDown);
 

@@ -11,6 +11,7 @@ const std::string defaultResourcePath("resource/spriteSheet");
 
 int main(){
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Frame's Title");
+	window.setVerticalSyncEnabled(true);
 	sf::Texture backgroundTexture;
 	sf::Sprite background;
 
@@ -28,38 +29,38 @@ int main(){
 
 	sf::View up(
         sf::FloatRect(
-            0.f, 
-            0.f, 
+            0.f,
+            0.f,
             static_cast<float>(window.getSize().x),
-            static_cast<float>(window.getSize().y/2) 
+            static_cast<float>(window.getSize().y/2)
         )
     );
 	up.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 0.5f));
 
 	sf::View down(
         sf::FloatRect(
-            0.f, 
-            0.f, 
+            0.f,
+            0.f,
             static_cast<float>(window.getSize().x),
             static_cast<float>(window.getSize().y/2)
         )
     );
 	down.setViewport(sf::FloatRect(0.f, 0.5f, 1.f, 0.5f));
 
-	
+
 	SpriteFactory cirnoFactory(defaultResourcePath);
 	CirnoConfig cirnoConfigTemplate;
 	cirnoFactory.addConfig(cirnoConfigTemplate);
 	AnimatedSprite cirno = cirnoFactory.create("cirno");
 	cirno.setOrigin(16,16);
 	cirno.setPosition(50,50);
-	
+
 	ConfigObject grownCirnoConfigTemplate("grownCirno","cirnoGrown.png");
 	cirnoFactory.addConfig(grownCirnoConfigTemplate);
 	AnimatedSprite grownCirno = cirnoFactory.create("grownCirno");
 	grownCirno.setOrigin(16,16);
 	grownCirno.setPosition(50,50);
-	
+
 	EventManager eventManager;
 
 	sf::Clock clock;
@@ -92,7 +93,7 @@ int main(){
 			moveCirno.setDirection(MoveAction::DOWN);
 			moveCirno.execute();
 		}
-		
+
 		if(eventManager.have(std::string("primary"))){
 			MoveAction moveGrownCirno(grownCirno);
 			sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
